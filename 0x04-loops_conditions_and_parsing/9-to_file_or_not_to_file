@@ -2,6 +2,7 @@
 # script that gives you information about the school file.
 if [[ -e school ]]
 then
+    echo "school file exists"
     if [[ -r school ]]
     then
         echo "school file is not empty"

@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 # bash scripts that prints bad luck on 4th iteration,
 # good luck on 8th iteration, and Best School for the other iterations
-for i in {1..10}
+count=1
+while [[ $count -le 10 ]]
 do
-    if [[ $i == 4 ]]
+    if [[ $count == 4 ]]
     then
         echo "bad luck"
-    elif [[ $i == 8 ]]
+    elif [[ $count == 8 ]]
     then
         echo "good luck"
     else
         echo "Best School"
     fi
+    count=$((count+1))
 done
