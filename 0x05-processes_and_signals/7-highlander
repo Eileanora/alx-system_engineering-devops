@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# same as 4-to_infinity_and_beyond but doesnt get killed by SEGTER
+while true
+do
+    trap 'echo "I am invincible!!!"' SIGTERM
+    echo "To infinity and beyond"
+    sleep 2
+done
