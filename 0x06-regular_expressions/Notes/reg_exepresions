@@ -18,7 +18,7 @@
 # look behind
 /?<=[tT]he./            # match charachters after any the or The without including the the or The
 # look ahead
-/(?=t|T)he/             # match charachters before any the or The without including the the or The
+/
 # regular expressions
 # repetition tokens
     # reptions tokens are greedy
