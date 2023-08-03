@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+
+/[a-z]/.match("abc")
+/(t|T)he/.match("The")  # match either the or The
+/t|The /.match("The")   # match either t or The
+/(t|e|r){2, 3}/        # match either t, e, or r 2 or 3 times
+/(t|e|r){2, 3}?/       # match either t, e, or r 2 or 3 times but not greedy
+/(t|e|r){2, 3}\./       # match either t, e, or r 2 or 3 times and end with a period
+/re{2, 3}/              # match e 2 or 3 times
+/(re){2, 3}/            # match re 2 or 3 times
+/^ /                    # match the beginning of a line
+/ $/                    # match the end of a line
+/^[a-z]/                # match the beginning of a line and a-z
+/.{3}/                  # match any character 3 times
+/.{3,}/                 # match any character 3 or more times
+/.{3,5}/                # match any character 3 to 5 times
+# look behind
+/?<=[tT]he./            # match charachters after any the or The without including the the or The
+# look ahead
+/(?=t|T)he/             # match charachters before any the or The without including the the or The
+# regular expressions
+# repetition tokens
+    # reptions tokens are greedy
+    # they contiue to match untill the last match is found
+    # how to fix greediness? 
+        # there are two ways to fix greediness
+        # 1. use a ? after the repetition token 
+            # ex) <.+?> will match only HTML tags
+        # 2. use neg character class 
