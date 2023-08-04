@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Use the netstat command to display listening sockets
 # -l: Show only listening sockets
 # -n: Show numerical addresses instead of trying to determine symbolic host, port or user names
