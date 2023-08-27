@@ -1,0 +1,35 @@
+https://imgur.com/GzcDVlY
+
+
+For every additional element, why you are adding it
+    1- Firewall
+        we put a firewall to protect our server from attacks and to check the traffic that is coming to our server
+    2- SSL certificate
+        we put a SSL certificate to encrypt the traffic between the server and the client (security)
+    3- Monitoring
+        we put a monitoring tool to monitor the traffic that is coming to our server and to check if the server is working properly
+
+What are firewalls for?
+    They act as a barrier between the internet and the servers, providing protection against unauthorized access, malicious activities, and potential threats.
+
+Why is the traffic served over HTTPS
+    The traffic is served over HTTPS to encrypt the traffic between the server and the client, protecting sensitive data from being intercepted by third parties.
+
+What monitoring is used for?
+    These clients collect and send data to a monitoring platform, allowing visibility into the infrastructure's performance, health, and security.
+
+How the monitoring tool is collecting data
+    The monitoring tool's clients collect data by monitoring: server metrics, network traffic, database performance, and application logs.
+
+Explain what to do if you want to monitor your web server QPS
+    To monitor the web server's Queries Per Second (QPS), the monitoring tool can track the number of incoming requests to each web server over a specific time period.
+
+ISSUES:
+Why terminating SSL at the load balancer level is an issue
+    The traffic between the load balancer and the web servers is not encrypted, which means that the data is vulnerable to interception by third parties.
+
+Why having only one MySQL server capable of accepting writes is an issue
+    If the MySQL server goes down, the application will not be able to write to the database, which will result in a loss of data.
+
+Why having servers with all the same components (database, web server and application server) might be a problem
+    If one of the servers goes down, the application will not be able to function properly, which will result in a loss of data.
