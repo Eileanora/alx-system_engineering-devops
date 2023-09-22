@@ -1,3 +1,4 @@
+# create a file at /tmp with some requirments
 file { '/tmp/school':
     ensure  => 'file',
     path    => '/tmp/test.txt',
