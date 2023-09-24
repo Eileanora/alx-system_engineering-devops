@@ -1,0 +1,4 @@
+# config ssh client to connect to the server with the private key
+# refuse password authentication
+PasswordAuthentication no
+IdentityFile ~/.ssh/school
