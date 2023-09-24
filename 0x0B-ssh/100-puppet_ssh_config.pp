@@ -1,12 +1,12 @@
 # config file to set up client SSH configuration so that we can connect without typing a password
-file { '/home/ubuntu/.ssh/config':
+file { '~/.ssh/config':
     ensure  => 'file',
+    path    => 'etc/ssh/ssh_config',
     owner   => 'ubuntu',
     group   => 'ubuntu',
     mode    => '0600',
     content => "
-    Host *
-        IdentityFile /home/ubuntu/.ssh/school
-        PasswordAuthentication no
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
     ",
 }
