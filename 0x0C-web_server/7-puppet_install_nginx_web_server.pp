@@ -4,13 +4,6 @@ package { 'nginx':
   before => File['/etc/nginx/sites-available/default'],
 }
 
-file { '/etc/nginx/sites-available/default':
-  ensure  => file,
-  content => template('nginx/default.erb'),
-  require => Package['nginx'],
-  notify  => Service['nginx'],
-}
-
 file { '/var/www/html/index.html':
     ensure  => file,
     content => 'Hello World!',
@@ -46,5 +39,3 @@ service { 'nginx':
     enable    => true,
     subscribe => File['/etc/nginx/sites-available/default'],
 }
-
-include nginx
