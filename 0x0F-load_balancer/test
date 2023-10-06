@@ -43,15 +43,22 @@ server {
 
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
-error_page 404 /custom_404.html;
+	error_page 404 /custom_404.html;
 
 	server_name _;
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;
-    }
+location /redirect_me {        
+		return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;    
+	}
+
+
+
+
 	rewrite ^/redirect_me https://https://www.youtube.com/watch?v=eCOdMdWbP_4 permanent;
 	rewrite ^/redirect_me https://https://www.youtube.com/watch?v=eCOdMdWbP_4 permanent;
 
+on /redirect_me {        
+		return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;    
+	}
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
@@ -60,6 +67,9 @@ error_page 404 /custom_404.html;
 
 	# pass PHP scripts to FastCGI server
 	#
+on /redirect_me {        
+		return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;    
+	}
 	#location ~ \.php$ {
 	#	include snippets/fastcgi-php.conf;
 	#
@@ -72,6 +82,9 @@ error_page 404 /custom_404.html;
 	# deny access to .htaccess files, if Apache&apos;s document root
 	# concurs with nginx&apos;s one
 	#
+on /redirect_me {        
+		return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;    
+	}
 	#location ~ /\.ht {
 	#	deny all;
 	#}
@@ -92,6 +105,9 @@ error_page 404 /custom_404.html;
 #	root /var/www/example.com;
 #	index index.html;
 #
+on /redirect_me {        
+		return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;    
+	}
 #	location / {
 #	
 #		try_files $uri $uri/ =404;

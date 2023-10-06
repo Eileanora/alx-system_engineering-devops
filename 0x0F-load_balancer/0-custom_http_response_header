@@ -16,9 +16,9 @@ echo "Ceci n'est pas une page" | tee /var/www/html/custom_404.html
 
 # redirection for a (/redirect_me) request to another page
 sed -i "/server_name _;/a \
-    location /redirect_me {\
-        return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;\
-    }" /etc/nginx/sites-available/default
+location /redirect_me {\
+        \n\t\treturn 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;\
+    \n\t}" /etc/nginx/sites-available/default
 
 # redirection for 404
 sed -i "/server_name _;/a \
