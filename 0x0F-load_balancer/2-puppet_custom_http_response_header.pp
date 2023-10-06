@@ -1,3 +1,4 @@
+# puppet script to install nginx and do some basic configuration
 $hostname = $::hostname
 
 file { '/etc/nginx/conf.d/hostname.conf':
