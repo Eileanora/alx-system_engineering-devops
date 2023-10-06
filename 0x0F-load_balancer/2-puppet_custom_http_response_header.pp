@@ -21,7 +21,6 @@ file { '/etc/nginx/sites-available/default':
         index index.html;
 
         server_name _;
-        add_header X-Served-By $HOSTNAME;
 
         location / {
             try_files \$uri \$uri/ =404;
@@ -33,6 +32,12 @@ file { '/etc/nginx/sites-available/default':
     }
     ",
     require => Package['nginx'],
+}
+
+exec {'set served-by header':
+    command => sed -i "/server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
+    require => File['/etc/nginx/sites-available/default'],
+    path    => ['/bin', '/usr/bin'],
 }
 
 service { 'nginx':
