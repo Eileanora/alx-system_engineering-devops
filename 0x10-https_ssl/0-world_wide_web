@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# script that displayes infromation about subdomains
+
+get_ip() {
+    SUB_DOMAIN=$1
+    DOMAIN=$2
+    output=$(dig +noall "$SUB_DOMAIN"."$DOMAIN" A +answer)
+    read -r TYPE IP <<< "$(echo "$output" | tail -1 | awk '{print $4, $5}')"
+
+    echo "The subdomain $SUB_DOMAIN is a $TYPE record and points to $IP"
+}
+
+if [ $# -eq 1 ];
+then
+    get_ip www "$1"
+    get_ip lb-01 "$1"
+    get_ip web-01 "$1"
+    get_ip web-02 "$1"
+else
+    get_ip "$2" "$1"
+fi
