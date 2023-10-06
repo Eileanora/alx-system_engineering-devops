@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# bash script that configures a new Ubuntu machine for:
+# the previously configured web servers
+# a custom http header in nginx configuration
+
+# Install nginx
+apt-get update
+apt-get install nginx -y
+
+# congifure nginx
+ufw allow 'Nginx HTTP'
+
+mkdir -p /var/www/html
+echo 'Hello World!' | tee /var/www/html/index.html
+echo "Ceci n'est pas une page" | tee /var/www/html/custom_404.html
+
+# redirection for a (/redirect_me) request to another page
+sed -i "/server_name _;/a \
+    location /redirect_me {\
+        return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;\
+    }" /etc/nginx/sites-available/default
+
+# redirection for 404
+sed -i "/server_name _;/a \
+        error_page 404 /custom_404.html;
+    " /etc/nginx/sites-available/default
+
+# add header
+sed -i "/server_name _;/a \
+        add_header X-Served-By $HOSTNAME;
+    " /etc/nginx/sites-available/default
+
+# restart nginx
+service nginx restart
