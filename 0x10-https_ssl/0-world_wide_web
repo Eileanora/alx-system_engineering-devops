@@ -19,3 +19,6 @@ then
 else
     get_ip "$2" "$1"
 fi
+#use a variable to store the domain name
+#combine the keys
+DOMAIN='www.eilea.tech' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
