@@ -46,19 +46,12 @@ server {
 	error_page 404 /custom_404.html;
 
 	server_name _;
-location /redirect_me {        
+	add_header X-Served-By pop-os;
+	error_page 404 /custom_404.html;
+	location /redirect_me {        
 		return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;    
 	}
 
-
-
-
-	rewrite ^/redirect_me https://https://www.youtube.com/watch?v=eCOdMdWbP_4 permanent;
-	rewrite ^/redirect_me https://https://www.youtube.com/watch?v=eCOdMdWbP_4 permanent;
-
-on /redirect_me {        
-		return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;    
-	}
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
@@ -67,9 +60,6 @@ on /redirect_me {
 
 	# pass PHP scripts to FastCGI server
 	#
-on /redirect_me {        
-		return 301 https://www.youtube.com/watch?v=eCOdMdWbP_4;    
-	}
 	#location ~ \.php$ {
 	#	include snippets/fastcgi-php.conf;
 	#
