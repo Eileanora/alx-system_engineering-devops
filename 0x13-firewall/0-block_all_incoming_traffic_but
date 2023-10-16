@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+# This script configures a firewall on the web-01 server
+# to block all incoming traffic except for ports 22, 443, and 80
+sudo apt-get -y update
+sudo apt-get install -y ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 22 # same as sudo ufw allow ssh
+sudo ufw allow 443 # same as sudo ufw allow https
+sudo ufw allow 80 # same as sudo ufw allow http
+sudo ufw enable
