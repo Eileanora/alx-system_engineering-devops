@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# check if nginx is installed if not, install it
+sudo apt-get -y update
+sudo apt-get install nginx -y
+
+# start nginx
+sudo systemctl start nginx
+
+# configure to listen on port 80
+sudo ufw allow 80
+
+# restart nginx
+sudo service nginx restart
