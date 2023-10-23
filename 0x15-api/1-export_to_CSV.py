@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 '''script that exports to csv the employee TODO list progress'''
+import csv
 import requests
 from sys import argv
-import csv
 
 
 if __name__ == "__main__":
