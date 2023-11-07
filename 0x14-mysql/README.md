@@ -8,9 +8,9 @@
 <li>What operation should you regularly perform to make sure that your database backup strategy actually works</li>
 
 ## Resources
-<li><a href="/rltoken/eojqG9FZbA6QVWN5P9cLzA" target="_blank" title="What is a primary-replica cluster">What is a primary-replica cluster</a> </li>
-<li><a href="/rltoken/z2KVk2UKLMc0RvHMdJmYLg" target="_blank" title="MySQL primary replica setup">MySQL primary replica setup</a> </li>
-<li><a href="/rltoken/BharnxaLb-BDDYFywzME2Q" target="_blank" title="Build a robust database backup strategy">Build a robust database backup strategy</a> </li>
+<li><a href="https://intranet.alxswe.com/rltoken/eojqG9FZbA6QVWN5P9cLzA" target="_blank" title="What is a primary-replica cluster">What is a primary-replica cluster</a> </li>
+<li><a href="https://intranet.alxswe.com/rltoken/z2KVk2UKLMc0RvHMdJmYLg" target="_blank" title="MySQL primary replica setup">MySQL primary replica setup</a> </li>
+<li><a href="https://intranet.alxswe.com/rltoken/BharnxaLb-BDDYFywzME2Q" target="_blank" title="Build a robust database backup strategy">Build a robust database backup strategy</a> </li>
 
 ## Concepts
 <li>
