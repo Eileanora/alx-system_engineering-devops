@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+'''Scipts that parses the title of all hot articles,\
+and prints a sorted count of given keywords'''
 import requests
 
 
