@@ -5,13 +5,13 @@ import requests
 
 def recurse(subreddit, hot_list=[], after=None):
     '''Function that returns a list of all hot posts'''
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json?limit=100".format(subreddit)
     headers = {'User-Agent': 'custom'}
     params = {'after': after}
     response = requests.get(url, headers=headers, params=params,
                             allow_redirects=False)
     if response.status_code != 200:
-        return None
+        return (None)
     else:
         for post in response.json().get('data').get('children'):
             hot_list.append(post.get('data').get('title'))
