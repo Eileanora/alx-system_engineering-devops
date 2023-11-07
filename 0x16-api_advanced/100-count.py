@@ -1,6 +1,3 @@
-#!/usr/bin/python3
-'''Scipts that parses the title of all hot articles,\
-and prints a sorted count of given keywords'''
 import requests
 
 
@@ -13,12 +10,14 @@ def count_words(subreddit, word_list, after='', word_count={}):
                             allow_redirects=False)
     if response.status_code != 200:
         return None
-    
-    articals = response.json().get('data').get('children')
-    for post in articals:
+
+    posts = response.json().get('data').get('children')
+    for post in posts:
         title = post.get('data').get('title')
-        for word in word_list:
-            if word.lower() in title.lower():
+        words = title.split(' ')
+        for word in words:
+            word = word.lower()
+            if word in word_list:
                 if word in word_count:
                     word_count[word] += 1
                 else:
@@ -29,7 +28,7 @@ def count_words(subreddit, word_list, after='', word_count={}):
             return None
         else:
             for key, value in sorted(word_count.items(),
-                                     key=lambda item: item[1],
+                                     key=lambda item: (item[1], item[0]),
                                      reverse=True):
                 print('{}: {}'.format(key, value))
     else:
